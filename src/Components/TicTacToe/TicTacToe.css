@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right top, #051937, #002a47, #003b54, #004c5f, #0f5d67);
+  animation: gradientAnimation 15s ease infinite; /* Animation for background gradient */
+  z-index: -1; /* Send the background behind the content */
+  filter: blur(15px); /* Blur effect */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 40px;
+  text-align: center;
+}
+
+.title {
+  margin-top: 50px;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  background-image: linear-gradient(to right, #3f6b82, #5a8ca6, #3f6b82);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
+  transition: transform 0.3s ease;
+}
+
+.title:hover {
+  transform: scale(1.05);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cursor {
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.reset {
+  width: 150px;
+  height: 50px;
+  padding: 10px 20px;
+  background-color: #1f3540;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative; 
+}
+
+.reset:hover {
+  background-color: #3f6b82;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+  animation: wiggle 0.3s ease;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); } 
+  50% { transform: rotate(-2deg); } 
+  75% { transform: rotate(1deg); } 
+  100% { transform: rotate(0deg); }
+}
+
+.boxes {
+  display: flex;
+  height: 180px;
+  width: 180px;
+  background: #1f3540;
+  border: 4px solid #0f1b21;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.board {
+  height: 600px;
+  width: 564px;
+  display: flex;
+  margin: auto;
+}
+
+.boxes img {
+  margin: 50px 50px;
+}
+
+.title img {
+  padding: 20px;
+  height: 50px;
+}
+
+.small-box {
+  position: absolute; /* Position it in the top left corner */
+  top: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  width: 60px; /* Width of the small box */
+  height: 60px; /* Height of the small box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #0f1b21; /* Default border color */
+  border-radius: 12px; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  cursor: pointer;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.small-box img {
+  width: 40px; /* Adjust icon size */
+  height: 40px; /* Adjust icon size */
+}
